@@ -7,13 +7,21 @@ import {
 import { IntegrationConfig } from '../../config';
 import { Steps, Entities } from '../constants';
 import { getStepName } from '../../helpers';
+import { createAPIClient } from '../../client';
+import { createRemoteOfficeEntity } from './converter';
 
-/**
- * @todo Implement fetch
- */
 export async function fetchRemoteOffices({
   jobState,
-}: IntegrationStepExecutionContext<IntegrationConfig>) {}
+  instance,
+}: IntegrationStepExecutionContext<IntegrationConfig>) {
+  const { config } = instance;
+
+  const client = createAPIClient(config);
+
+  await client.iterateRemoteOffices(async (remoteOffice) => {
+    await jobState.addEntity(createRemoteOfficeEntity(remoteOffice));
+  });
+}
 
 export const fetchRemoteOfficesSteps: IntegrationStep<IntegrationConfig>[] = [
   {

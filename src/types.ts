@@ -63,10 +63,12 @@ export interface EndpointCentralRemoteOffice {
   updated_time: string;
   has_masteragent: boolean;
   ds_port: string;
+  // Looks like this could come back as boolean https://www.manageengine.com/products/desktop-central/api/api-som-remoteoffices.html#:~:text=%22has_masteragent%22%3A%20true%2C
   is_https: string;
   proxy_username: string;
   polling_int: string;
   last_contact_time: string;
+  // Looks like this could come back as boolean https://www.manageengine.com/products/desktop-central/api/api-som-remoteoffices.html#:~:text=%22has_masteragent%22%3A%20true%2C
   is_proxy: string;
   branch_office_id: string;
   agent_comm_branch_office_id: string;

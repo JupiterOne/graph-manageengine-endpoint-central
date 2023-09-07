@@ -1,0 +1,32 @@
+# ManageEngine Endpoint Central
+
+<!-- {J1_DOCUMENTATION_MARKER_START} -->
+<!--
+********************************************************************************
+NOTE: ALL OF THE FOLLOWING DOCUMENTATION IS GENERATED USING THE
+"j1-integration document" COMMAND. DO NOT EDIT BY HAND! PLEASE SEE THE DEVELOPER
+DOCUMENTATION FOR USAGE INFORMATION:
+
+https://github.com/JupiterOne/sdk/blob/main/docs/integrations/development.md
+********************************************************************************
+-->
+
+## Data Model
+
+### Entities
+
+The following entities are created:
+
+| Resources    | Entity `_type`               | Entity `_class` |
+| ------------ | ---------------------------- | --------------- |
+| Computer     | `manageengine_computer`      | `Device`        |
+| Patch        | `manageengine_patch`         | `Finding`       |
+| RemoteOffice | `manageengine_remote_office` | `Group`         |
+| Software     | `manageengine_software`      | `Application`   |
+
+<!--
+********************************************************************************
+END OF GENERATED DOCUMENTATION AFTER BELOW MARKER
+********************************************************************************
+-->
+<!-- {J1_DOCUMENTATION_MARKER_END} -->

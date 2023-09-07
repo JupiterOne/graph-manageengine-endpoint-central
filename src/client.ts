@@ -36,23 +36,24 @@ export class APIClient {
     this.logger = logger;
     this._zohoGaxios = new Gaxios({
       timeout: 15_000, // 15 secs max
-      baseURL: `https://${config.zoho_account_endpoint}`,
+      baseURL: `https://${config.zohoAccountEndpoint}`,
     });
     this._gaxios = new Gaxios({
       timeout: 15_000, // 15 secs max
-      baseURL: `https://${config.endpoint_central_endpoint}/api/1.4`,
+      baseURL: `https://${config.endpointCentralEndpoint}/api/1.4`,
+      responseType: 'json',
     });
   }
 
   private async getAccessToken(refreshToken: string): Promise<string> {
-    const { data } =
+    const { data, status, statusText } =
       await this._zohoGaxios.request<ZohoClientAuthTokenResponse>({
         url: '/oauth/v2/token',
         method: 'POST',
-        data: {
+        params: {
           refresh_token: refreshToken,
-          client_id: this.config.zoho_client_id,
-          client_secret: this.config.zoho_client_secret,
+          client_id: this.config.zohoClientId,
+          client_secret: this.config.zohoClientSecret,
           grant_type: 'refresh_token',
         },
       });
@@ -61,8 +62,8 @@ export class APIClient {
       throw new IntegrationProviderAuthenticationError({
         endpoint: '/oauth/v2/token',
         cause: new Error('Access Token not returned by zoho auth'),
-        status: 200,
-        statusText: 'OK',
+        status,
+        statusText,
       });
     }
 
@@ -72,9 +73,7 @@ export class APIClient {
   public async verifyAuthentication(): Promise<void> {
     if (this._verified) return Promise.resolve();
 
-    const accessToken = await this.getAccessToken(
-      this.config.zoho_refresh_token,
-    );
+    const accessToken = await this.getAccessToken(this.config.zohoRefreshToken);
 
     this._gaxios.defaults.headers = {
       ...this._gaxios.defaults.headers,
@@ -153,6 +152,17 @@ export class APIClient {
   }
 }
 
-export function createAPIClient(config: IntegrationConfig): APIClient {
-  return new APIClient(config);
+const API_CLIENTS = new Map<string, APIClient>();
+
+export function createAPIClient(
+  config: IntegrationConfig,
+  logger?: IntegrationLogger,
+): APIClient {
+  const _key = config.zohoClientId;
+
+  if (!API_CLIENTS.has(_key)) {
+    API_CLIENTS.set(_key, new APIClient(config, logger));
+  }
+
+  return API_CLIENTS.get(_key)!;
 }

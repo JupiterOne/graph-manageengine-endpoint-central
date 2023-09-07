@@ -15,7 +15,6 @@ test(Steps.FETCH_COMPUTERS, async () => {
     directory: __dirname,
     name: Steps.FETCH_COMPUTERS,
   });
-
   const stepConfig = buildStepTestConfigForStep(Steps.FETCH_COMPUTERS);
   // await createAPIClient(stepConfig.instanceConfig).verifyAuthentication();
   const stepResult = await executeStepWithDependencies(stepConfig);

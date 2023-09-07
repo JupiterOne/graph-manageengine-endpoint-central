@@ -10,18 +10,16 @@ import { createEntityKey } from '../../helpers';
 export function createRemoteOfficeEntity(
   remoteOffice: EndpointCentralRemoteOffice,
 ): Entity {
+  const branchId = String(remoteOffice.branch_office_id);
   return createIntegrationEntity({
     entityData: {
       source: remoteOffice,
       assign: {
-        _key: createEntityKey(
-          Entities.REMOTE_OFFICE,
-          remoteOffice.branch_office_id,
-        ),
+        _key: createEntityKey(Entities.REMOTE_OFFICE, branchId),
         _type: Entities.REMOTE_OFFICE._type,
         _class: Entities.REMOTE_OFFICE._class,
-        id: remoteOffice.branch_office_id,
-        remoteOfficeId: remoteOffice.branch_office_id,
+        id: branchId,
+        remoteOfficeId: branchId,
         name: remoteOffice.branch_office_name,
         displayName: remoteOffice.branch_office_name,
         description: remoteOffice.branch_office_desc,

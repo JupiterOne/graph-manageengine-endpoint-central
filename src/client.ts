@@ -106,7 +106,7 @@ export class APIClient {
   ): Promise<void> {
     const { data } =
       await this._gaxios.request<EndpointCentralRemoteOfficesResponse>({
-        method: 'POST',
+        method: 'GET',
         url: '/som/remoteoffice',
       });
 

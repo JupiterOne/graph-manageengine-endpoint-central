@@ -13,10 +13,11 @@ import { createRemoteOfficeEntity } from './converter';
 export async function fetchRemoteOffices({
   jobState,
   instance,
+  logger,
 }: IntegrationStepExecutionContext<IntegrationConfig>) {
   const { config } = instance;
 
-  const client = createAPIClient(config);
+  const client = createAPIClient(config, logger);
 
   await client.iterateRemoteOffices(async (remoteOffice) => {
     await jobState.addEntity(createRemoteOfficeEntity(remoteOffice));

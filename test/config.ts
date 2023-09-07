@@ -30,7 +30,9 @@ export const integrationConfig: IntegrationConfig = {
     process.env.ZOHO_REFRESH_TOKEN || DEFAULT_ZOHO_REFRESH_TOKEN,
 };
 
-export function buildStepTestConfigForStep(stepId: string): StepTestConfig {
+export function buildStepTestConfigForStep(
+  stepId: string,
+): StepTestConfig<IntegrationInvocationConfig, IntegrationConfig> {
   return {
     stepId,
     instanceConfig: integrationConfig,

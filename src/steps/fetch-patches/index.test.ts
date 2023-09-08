@@ -15,7 +15,6 @@ test(Steps.FETCH_PATCHES, async () => {
     directory: __dirname,
     name: Steps.FETCH_PATCHES,
   });
-
   const stepConfig = buildStepTestConfigForStep(Steps.FETCH_PATCHES);
   // await createAPIClient(stepConfig.instanceConfig).verifyAuthentication();
   const stepResult = await executeStepWithDependencies(stepConfig);

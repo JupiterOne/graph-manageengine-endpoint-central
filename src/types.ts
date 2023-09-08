@@ -155,6 +155,34 @@ export interface EndpointCentralPatch {
   ro_success_count: string;
 }
 
+export interface EndpointCentralPatchDetails extends EndpointCentralPatch {
+  branch_office_name: string;
+  patch_updated_time: number;
+  'resource.name': string;
+  os_language: number;
+  install_error_code: string;
+  update_name: string;
+  deploy_remarks: string;
+  'resource.domain_netbios_name': string;
+  service_pack: string;
+  patch_type: number;
+  'resource.resource_id': number;
+  'pmseverity.name': string;
+  patch_status: number;
+  'collection.collection_name': string;
+  'oslanguage.i18n': string;
+  deployment_status: string;
+  'resourcemacip.resource_id': number;
+  ip_address: number;
+  'deployer.first_name': string;
+  agent_version: string;
+  user_id: number;
+  resource_id: number;
+  os_name: string;
+  deploy_remarks_args: string;
+  installed_time: string;
+}
+
 export type EndpointCentralRemoteOfficesResponse = EndpointCentralBaseResponse<{
   remoteoffice: EndpointCentralRemoteOffice[];
 }>;
@@ -170,4 +198,8 @@ export type EndpointCentralInstalledSoftwaresResponse =
 
 export type EndpointCentralPatchesResponse = EndpointCentralBaseResponse<{
   allpatches: EndpointCentralPatch[];
+}>;
+
+export type EndpointCentralPatchDetailsResponse = EndpointCentralBaseResponse<{
+  allpatchdetails: EndpointCentralPatchDetails[];
 }>;

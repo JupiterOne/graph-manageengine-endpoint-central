@@ -15,7 +15,7 @@ const DEFAULT_ENDPOINT_CENTRAL_ENDPOINT = 'endpointcentral.manageengine.com';
 const DEFAULT_ZOHO_CLIENT_ID = 'dummy-client-id';
 const DEFAULT_ZOHO_CLIENT_SECRET = 'dummy-client-secret';
 const DEFAULT_ZOHO_REFRESH_TOKEN = 'dummy-client-refresh-token';
-const DEFAULT_ZOHO_ACCOUNT_ENDPOINT = 'accounts.zoho.com	';
+const DEFAULT_ZOHO_ACCOUNT_ENDPOINT = 'accounts.zoho.com';
 
 export const integrationConfig: IntegrationConfig = {
   endpointCentralEndpoint:

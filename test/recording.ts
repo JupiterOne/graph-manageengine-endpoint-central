@@ -17,6 +17,13 @@ export function setupProjectRecording(
     mutateEntry: (entry) => {
       redact(entry);
     },
+    options: {
+      matchRequestsBy: {
+        url: {
+          query: false,
+        },
+      },
+    },
   });
 }
 

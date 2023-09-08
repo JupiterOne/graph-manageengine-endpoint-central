@@ -24,14 +24,6 @@ The following entities are created:
 | RemoteOffice | `manageengine_remote_office` | `Group`         |
 | Software     | `manageengine_software`      | `Application`   |
 
-### Relationships
-
-The following relationships are created:
-
-| Source Entity `_type`        | Relationship `_class` | Target Entity `_type` |
-| ---------------------------- | --------------------- | --------------------- |
-| `manageengine_remote_office` | **ENFORCES**          | `manageengine_patch`  |
-
 <!--
 ********************************************************************************
 END OF GENERATED DOCUMENTATION AFTER BELOW MARKER

@@ -92,7 +92,7 @@ export class APIClient {
   ): Promise<void> {
     const { data } =
       await this._gaxios.request<EndpointCentralComputersResponse>({
-        method: 'POST',
+        method: 'GET',
         url: '/som/computers',
       });
 
@@ -125,7 +125,7 @@ export class APIClient {
   ): Promise<void> {
     const { data } =
       await this._gaxios.request<EndpointCentralInstalledSoftwaresResponse>({
-        method: 'POST',
+        method: 'GET',
         url: `/inventory/installedsoftware?resid=${computerResourceId}`,
       });
 

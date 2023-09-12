@@ -7,13 +7,22 @@ import {
 import { IntegrationConfig } from '../../config';
 import { Steps, Entities } from '../constants';
 import { getStepName } from '../../helpers';
+import { createAPIClient } from '../../client';
+import { createComputerEntity } from './converter';
 
 /**
  * @todo Implement fetch
  */
 export async function fetchComputers({
   jobState,
-}: IntegrationStepExecutionContext<IntegrationConfig>) {}
+  instance,
+}: IntegrationStepExecutionContext<IntegrationConfig>) {
+  const client = createAPIClient(instance.config);
+  await client.iterateComputers(async (computer) => {
+    const computerEntity = createComputerEntity(computer);
+    await jobState.addEntity(computerEntity);
+  });
+}
 
 export const fetchComputersSteps: IntegrationStep<IntegrationConfig>[] = [
   {

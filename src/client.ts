@@ -10,6 +10,8 @@ import {
   EndpointCentralInstalledSoftware,
   EndpointCentralInstalledSoftwaresResponse,
   EndpointCentralPatch,
+  EndpointCentralPatchDetails,
+  EndpointCentralPatchDetailsResponse,
   EndpointCentralPatchesResponse,
   EndpointCentralRemoteOffice,
   EndpointCentralRemoteOfficesResponse,
@@ -139,7 +141,7 @@ export class APIClient {
   ): Promise<void> {
     const { data } = await this._gaxios.request<EndpointCentralPatchesResponse>(
       {
-        method: 'POST',
+        method: 'GET',
         url: '/patch/allpatches',
       },
     );
@@ -149,6 +151,17 @@ export class APIClient {
     for (const patch of patches) {
       await iteratee(patch);
     }
+  }
+
+  public async fetchPatchDetails(
+    patchId: string,
+  ): Promise<EndpointCentralPatchDetails> {
+    const { data } =
+      await this._gaxios.request<EndpointCentralPatchDetailsResponse>({
+        method: 'GET',
+        url: `/patch/allpatchdetails?patchid=${patchId}`,
+      });
+    return data.message_response.allpatchdetails[0];
   }
 }
 

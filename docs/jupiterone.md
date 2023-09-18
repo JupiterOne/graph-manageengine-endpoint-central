@@ -22,15 +22,16 @@ The following entities are created:
 | Computer     | `manageengine_computer`      | `Device`        |
 | Patch        | `manageengine_patch`         | `Finding`       |
 | RemoteOffice | `manageengine_remote_office` | `Group`         |
-| Software     | `manageengine_software`      | `Application`   |
 
 ### Relationships
 
 The following relationships are created:
 
-| Source Entity `_type`        | Relationship `_class` | Target Entity `_type` |
-| ---------------------------- | --------------------- | --------------------- |
-| `manageengine_remote_office` | **ENFORCES**          | `manageengine_patch`  |
+| Source Entity `_type`        | Relationship `_class` | Target Entity `_type`   |
+| ---------------------------- | --------------------- | ----------------------- |
+| `manageengine_computer`      | **HAS**               | `manageengine_patch`    |
+| `manageengine_remote_office` | **ENFORCES**          | `manageengine_patch`    |
+| `manageengine_remote_office` | **HAS**               | `manageengine_computer` |
 
 <!--
 ********************************************************************************

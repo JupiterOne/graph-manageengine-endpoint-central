@@ -10,7 +10,7 @@ import { Steps } from './steps/constants';
 
 export const createEntityKey = (
   entityMetadata: StepEntityMetadata,
-  id: string,
+  id: string | number,
 ) => {
   return `${entityMetadata._type}:${id}`;
 };

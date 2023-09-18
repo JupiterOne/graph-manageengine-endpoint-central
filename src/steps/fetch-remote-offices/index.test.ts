@@ -20,3 +20,31 @@ test(Steps.FETCH_REMOTE_OFFICES, async () => {
   const stepResult = await executeStepWithDependencies(stepConfig);
   expect(stepResult).toMatchStepMetadata(stepConfig);
 });
+
+test(Steps.RELATE_REMOTE_OFFICE_TO_COMPUTERS, async () => {
+  recording = setupProjectRecording({
+    directory: __dirname,
+    name: Steps.RELATE_REMOTE_OFFICE_TO_COMPUTERS,
+  });
+
+  const stepConfig = buildStepTestConfigForStep(
+    Steps.RELATE_REMOTE_OFFICE_TO_COMPUTERS,
+  );
+  await createAPIClient(stepConfig.instanceConfig).verifyAuthentication();
+  const stepResult = await executeStepWithDependencies(stepConfig);
+  expect(stepResult).toMatchStepMetadata(stepConfig);
+});
+
+test(Steps.RELATE_REMOTE_OFFICE_TO_PATCHES, async () => {
+  recording = setupProjectRecording({
+    directory: __dirname,
+    name: Steps.RELATE_REMOTE_OFFICE_TO_PATCHES,
+  });
+
+  const stepConfig = buildStepTestConfigForStep(
+    Steps.RELATE_REMOTE_OFFICE_TO_PATCHES,
+  );
+  await createAPIClient(stepConfig.instanceConfig).verifyAuthentication();
+  const stepResult = await executeStepWithDependencies(stepConfig);
+  expect(stepResult).toMatchStepMetadata(stepConfig);
+});

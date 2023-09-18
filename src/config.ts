@@ -2,11 +2,10 @@ import {
   IntegrationExecutionContext,
   IntegrationValidationError,
   IntegrationInstanceConfigFieldMap,
-  IntegrationInstanceConfig,
 } from '@jupiterone/integration-sdk-core';
 import { createAPIClient } from './client';
 
-export const instanceConfigFields: IntegrationInstanceConfigFieldMap = {
+export const instanceConfigFields = {
   endpointCentralEndpoint: {
     type: 'string',
     mask: false,
@@ -27,9 +26,9 @@ export const instanceConfigFields: IntegrationInstanceConfigFieldMap = {
     type: 'string',
     mask: true,
   },
-};
+} satisfies IntegrationInstanceConfigFieldMap;
 
-export interface IntegrationConfig extends IntegrationInstanceConfig {
+export interface IntegrationConfig {
   endpointCentralEndpoint: string;
   zohoAccountEndpoint: string;
   zohoClientId: string;

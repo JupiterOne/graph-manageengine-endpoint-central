@@ -4,10 +4,10 @@ import {
 } from '@jupiterone/integration-sdk-core';
 
 import { Entities } from '../constants';
-import { EndpointCentralPatch } from '../../types';
+import { EndpointCentralPatchDetails } from '../../types';
 import { createEntityKey } from '../../helpers';
 
-export function createPatchEntity(patch: EndpointCentralPatch): Entity {
+export function createPatchEntity(patch: EndpointCentralPatchDetails): Entity {
   const patchId = String(patch.patch_id);
   return createIntegrationEntity({
     entityData: {
@@ -27,6 +27,7 @@ export function createPatchEntity(patch: EndpointCentralPatch): Entity {
         category: 'endpoint',
         open: patch.failed > 0 || patch.missing > 0,
         vendorName: patch.vendor_name,
+        officeName: patch.branch_office_name,
       },
     },
   });

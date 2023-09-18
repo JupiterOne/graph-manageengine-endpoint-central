@@ -6,6 +6,7 @@ import {
 
 import { Entities } from '../constants';
 import { EndpointCentralComputer } from '../../types';
+import { createEntityKey } from '../../helpers';
 
 /**
  * @todo Implement entity
@@ -17,7 +18,7 @@ export function createComputerEntity(
     entityData: {
       source: computer,
       assign: {
-        _key: getComputerEntityKey(computer),
+        _key: createEntityKey(Entities.COMPUTER, computer.resource_id),
         _type: Entities.COMPUTER._type,
         _class: Entities.COMPUTER._class,
         /**
@@ -79,8 +80,4 @@ const getComputerPlatform = (computer: EndpointCentralComputer) => {
 
 const parseProperty = <T extends string | number>(property: T) => {
   return property === '--' ? 'Unknown' : property;
-};
-
-const getComputerEntityKey = (computer: EndpointCentralComputer) => {
-  return `${Entities.COMPUTER._type}:${computer.resource_id}`;
 };

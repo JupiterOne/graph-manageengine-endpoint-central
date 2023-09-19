@@ -31,7 +31,7 @@ export interface EndpointCentralComputer {
   service_pack: string;
   description: string;
   name: string;
-  live_status: number;
+  computer_live_status: number;
   owner_email_id: string;
   customer_name: string;
   label: string;
@@ -52,6 +52,7 @@ export interface EndpointCentralComputer {
   agent_upgraded_on: number;
   customer_id: number;
   full_name: string;
+  resource_name: string;
 }
 
 export interface EndpointCentralRemoteOffice {

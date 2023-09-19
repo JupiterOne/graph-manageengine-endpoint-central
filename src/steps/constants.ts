@@ -12,6 +12,9 @@ export const Steps = {
   FETCH_COMPUTERS: 'fetch-computers',
   FETCH_SOFTWARE: 'fetch-software',
   FETCH_PATCHES: 'fetch-patches',
+  RELATE_REMOTE_OFFICE_TO_COMPUTERS: 'relate-remote-office-to-computers',
+  RELATE_REMOTE_OFFICE_TO_PATCHES: 'relate-remote-office-to-patches',
+  RELATE_COMPUTER_TO_PATCHES: 'relate-computer-to-patches',
 } satisfies Record<string, `fetch-${string}` | `relate-${string}-to-${string}`>;
 
 export const Entities = {

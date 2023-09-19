@@ -34,7 +34,10 @@ export class APIClient {
   private _verified: boolean = false;
   private logger?: IntegrationLogger;
 
-  constructor(readonly config: IntegrationConfig, logger?: IntegrationLogger) {
+  constructor(
+    readonly config: IntegrationConfig,
+    logger?: IntegrationLogger,
+  ) {
     this.logger = logger;
     this._zohoGaxios = new Gaxios({
       timeout: 15_000, // 15 secs max
@@ -92,7 +95,7 @@ export class APIClient {
   ): Promise<void> {
     const { data } =
       await this._gaxios.request<EndpointCentralComputersResponse>({
-        method: 'POST',
+        method: 'GET',
         url: '/som/computers',
       });
 
@@ -125,7 +128,7 @@ export class APIClient {
   ): Promise<void> {
     const { data } =
       await this._gaxios.request<EndpointCentralInstalledSoftwaresResponse>({
-        method: 'POST',
+        method: 'GET',
         url: `/inventory/installedsoftware?resid=${computerResourceId}`,
       });
 

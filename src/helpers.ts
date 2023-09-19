@@ -10,7 +10,7 @@ import { Steps } from './steps/constants';
 
 export const createEntityKey = (
   entityMetadata: StepEntityMetadata,
-  id: string,
+  id: string | number,
 ) => {
   return `${entityMetadata._type}:${id}`;
 };
@@ -45,7 +45,7 @@ export const generateRelationshipMetadata = ({
     sourceType: from._type,
     _class,
     targetType: to._type,
-  } satisfies StepRelationshipMetadata);
+  }) satisfies StepRelationshipMetadata;
 
 const capitalizeFirstChar = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1);

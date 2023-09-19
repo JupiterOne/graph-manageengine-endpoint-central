@@ -57,6 +57,10 @@ export function createComputerEntity(
   });
 }
 
+/*
+ * Follow the documentations for status code list:
+ * https://www.manageengine.com/products/desktop-central/api/api-som-computers.html
+ */
 const getComputerStatus = (computer: EndpointCentralComputer) => {
   switch (computer.installation_status) {
     case 21:

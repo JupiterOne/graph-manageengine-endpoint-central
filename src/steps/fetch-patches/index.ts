@@ -38,7 +38,7 @@ export const fetchPatchesSteps: IntegrationStep<IntegrationConfig>[] = [
     name: getStepName(Steps.FETCH_PATCHES),
     entities: [Entities.PATCH],
     relationships: [],
-    dependsOn: [Steps.FETCH_REMOTE_OFFICES],
+    dependsOn: [],
     executionHandler: fetchPatches,
   },
 ];

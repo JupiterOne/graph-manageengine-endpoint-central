@@ -8,9 +8,6 @@ import { Entities } from '../constants';
 import { EndpointCentralComputer } from '../../types';
 import { createEntityKey } from '../../helpers';
 
-/**
- * @todo Implement entity
- */
 export function createComputerEntity(
   computer: EndpointCentralComputer,
 ): Entity {
@@ -21,10 +18,6 @@ export function createComputerEntity(
         _key: createEntityKey(Entities.COMPUTER, computer.resource_id),
         _type: Entities.COMPUTER._type,
         _class: Entities.COMPUTER._class,
-        /**
-         * note: most of these properties were inspired by other integrations
-         * and may be overkill.
-         */
         id: computer.resource_id.toString(),
         displayName: parseProperty(computer.resource_name),
         name: parseProperty(computer.full_name),

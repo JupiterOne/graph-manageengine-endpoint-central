@@ -1,6 +1,6 @@
 {
   "name": "@jupiterone/graph-manageengine-endpoint-central",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "An integration and graph conversion project for ManageEngine Endpoint Central",
   "license": "MPL-2.0",
   "main": "src/index.js",

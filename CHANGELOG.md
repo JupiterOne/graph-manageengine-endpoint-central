@@ -1,3 +1,15 @@
+# v0.3.1 (Wed Sep 27 2023)
+
+#### 🐛 Bug Fix
+
+- Fix fetch steps [#8](https://github.com/JupiterOne/graph-manageengine-endpoint-central/pull/8) ([@geovannimp](https://github.com/geovannimp))
+
+#### Authors: 1
+
+- Geovanni Pacheco ([@geovannimp](https://github.com/geovannimp))
+
+---
+
 # v0.3.0 (Mon Sep 25 2023)
 
 #### 🚀 Enhancement

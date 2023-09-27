@@ -4,11 +4,14 @@ import {
 } from '@jupiterone/integration-sdk-core';
 
 import { Entities } from '../constants';
-import { EndpointCentralPatchDetails } from '../../types';
+import { EndpointCentralPatch, EndpointCentralPatchDetails } from '../../types';
 import { createEntityKey } from '../../helpers';
 
 export function createPatchEntity(patch: EndpointCentralPatchDetails): Entity {
-  const patchId = String(patch.patch_id);
+  const patchId = getPatchId(patch);
+  const patchName = getPatchName(patch);
+  const severityNumber = getPatchSeverityNumber(patch);
+  const branchOfficeName = getPatchOfficeName(patch);
   return createIntegrationEntity({
     entityData: {
       source: patch,
@@ -19,16 +22,40 @@ export function createPatchEntity(patch: EndpointCentralPatchDetails): Entity {
         id: patchId,
         patchId,
         // ex: "SQLPreReqHandler_KB4057116_x64.exe"
-        name: patch.patch_name,
-        displayName: patch.patch_name,
+        name: patchName,
+        displayName: patchName,
         description: patch.patch_description,
         severity: patch['pmseverity.name'],
-        numericSeverity: patch.severity,
+        numericSeverity: severityNumber,
         category: 'endpoint',
         open: patch.failed > 0 || patch.missing > 0,
         vendorName: patch.vendor_name,
-        officeName: patch.branch_office_name,
+        officeName: branchOfficeName,
       },
     },
   });
 }
+
+export const getPatchSeverityNumber = (
+  patch: EndpointCentralPatchDetails | EndpointCentralPatch,
+) => {
+  return Number(patch.severity ?? patch['patch.severityid']);
+};
+
+export const getPatchName = (
+  patch: EndpointCentralPatchDetails | EndpointCentralPatch,
+) => {
+  return String(patch.patch_name ?? patch['pmpatchlocation.patchname']);
+};
+
+export const getPatchId = (
+  patch: EndpointCentralPatchDetails | EndpointCentralPatch,
+) => {
+  return String(patch.patch_id ?? patch['patch.patchid']);
+};
+
+export const getPatchOfficeName = (patch: EndpointCentralPatchDetails) => {
+  return String(
+    patch.branch_office_name ?? patch['branchofficedetails.branch_office_name'],
+  );
+};

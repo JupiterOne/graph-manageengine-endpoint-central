@@ -8,7 +8,7 @@ import { IntegrationConfig } from '../../config';
 import { Steps, Entities } from '../constants';
 import { getStepName } from '../../helpers';
 import { createAPIClient } from '../../client';
-import { createPatchEntity } from './converter';
+import { createPatchEntity, getPatchId } from './converter';
 
 export async function fetchPatches({
   jobState,
@@ -19,7 +19,7 @@ export async function fetchPatches({
   const client = createAPIClient(config, logger);
   await client.iteratePatches(async (patch) => {
     // get specific patch details
-    const patchDetails = await client.fetchPatchDetails(String(patch.patch_id));
+    const patchDetails = await client.fetchPatchDetails(getPatchId(patch));
     await jobState.addEntity(createPatchEntity(patchDetails));
   });
 }

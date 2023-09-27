@@ -145,6 +145,7 @@ export interface EndpointCentralPatch {
   first_name: string;
   severity: number;
   patch_id: number;
+  'patch.patchid': number;
   patch_name: string;
   patch_description: string;
   vendor_name: string;

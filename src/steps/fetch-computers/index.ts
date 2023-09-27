@@ -17,8 +17,10 @@ export async function fetchComputers({
 }: IntegrationStepExecutionContext<IntegrationConfig>) {
   const client = createAPIClient(instance.config);
   await client.iterateComputers(async (computer) => {
-    const computerEntity = createComputerEntity(computer);
-    await jobState.addEntity(computerEntity);
+    if (computer.mac_address !== '--') {
+      const computerEntity = createComputerEntity(computer);
+      await jobState.addEntity(computerEntity);
+    }
   });
 }
 

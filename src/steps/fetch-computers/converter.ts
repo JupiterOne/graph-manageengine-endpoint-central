@@ -41,7 +41,7 @@ export function createComputerEntity(
         hostname: parseProperty(computer.resource_name),
         deviceName: parseProperty(computer.resource_name),
         lastSeenOn: parseTimePropertyValue(new Date(computer.last_sync_time)),
-        officeName: parseProperty(computer.branch_office_name),
+        officeName: getComputerBranchOfficeName(computer),
         osVersion: parseProperty(computer.os_version),
         agentVersion: parseProperty(computer.agent_version),
         platform: getComputerPlatform(computer),
@@ -67,14 +67,25 @@ const getComputerStatus = (computer: EndpointCentralComputer) => {
 
 const getComputerPlatform = (computer: EndpointCentralComputer) => {
   const platform = parseProperty(computer.os_platform_name).toLowerCase();
-  switch (platform) {
+  switch (platform.toLowerCase()) {
     case 'mac':
       return 'darwin';
+    case 'linux':
+      return 'linux';
+    case 'windows':
+      return 'windows';
     default:
-      return platform;
+      return 'other';
   }
 };
 
 const parseProperty = <T extends string | number>(property: T) => {
-  return property === '--' ? 'Unknown' : property;
+  return !property || property === '--' ? 'Unknown' : property;
+};
+
+const getComputerBranchOfficeName = (computer: EndpointCentralComputer) => {
+  return parseProperty(
+    computer.branch_office_name ??
+      computer['branchofficedetails.branch_office_name'],
+  );
 };

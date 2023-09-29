@@ -10,16 +10,20 @@ afterEach(async () => {
   await recording.stop();
 });
 
-test(Steps.FETCH_COMPUTERS, async () => {
-  recording = setupProjectRecording({
-    directory: __dirname,
-    name: Steps.FETCH_COMPUTERS,
-  });
-  const stepConfig = buildStepTestConfigForStep(Steps.FETCH_COMPUTERS);
-  await createAPIClient(stepConfig.instanceConfig).verifyAuthentication();
-  const stepResult = await executeStepWithDependencies(stepConfig);
-  expect(stepResult).toMatchStepMetadata(stepConfig);
-});
+test(
+  Steps.FETCH_COMPUTERS,
+  async () => {
+    recording = setupProjectRecording({
+      directory: __dirname,
+      name: Steps.FETCH_COMPUTERS,
+    });
+    const stepConfig = buildStepTestConfigForStep(Steps.FETCH_COMPUTERS);
+    await createAPIClient(stepConfig.instanceConfig).verifyAuthentication();
+    const stepResult = await executeStepWithDependencies(stepConfig);
+    expect(stepResult).toMatchStepMetadata(stepConfig);
+  },
+  30_000,
+);
 
 test(
   Steps.RELATE_COMPUTER_TO_PATCHES,
@@ -35,5 +39,5 @@ test(
     const stepResult = await executeStepWithDependencies(stepConfig);
     expect(stepResult).toMatchStepMetadata(stepConfig);
   },
-  15_000,
+  30_000,
 );

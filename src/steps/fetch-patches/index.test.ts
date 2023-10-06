@@ -21,5 +21,5 @@ test(
     const stepResult = await executeStepWithDependencies(stepConfig);
     expect(stepResult).toMatchStepMetadata(stepConfig);
   },
-  60_000,
+  30_000,
 );

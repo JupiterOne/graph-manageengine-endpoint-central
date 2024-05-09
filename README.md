@@ -108,7 +108,3 @@ projects, please provide secrets with access to your own NPM and GitHub
 accounts. The secret names should be set to NPM_AUTH_TOKEN and
 AUTO_GITHUB_PAT_TOKEN respectively (or the action can be updated to accommodate
 different naming conventions).
-
-We are not currently using the functionality for auto to update the CHANGELOG.
-As such, please remember to update CHANGELOG.md with the appropriate version,
-date, and changes.

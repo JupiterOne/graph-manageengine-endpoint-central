@@ -1,3 +1,15 @@
+# v0.4.4 (Mon May 20 2024)
+
+#### 🐛 Bug Fix
+
+- Rename docker image name [#15](https://github.com/JupiterOne/graph-manageengine-endpoint-central/pull/15) ([@Nick-NCSU](https://github.com/Nick-NCSU))
+
+#### Authors: 1
+
+- Nick Thompson ([@Nick-NCSU](https://github.com/Nick-NCSU))
+
+---
+
 # v0.4.3 (Mon May 20 2024)
 
 #### 🐛 Bug Fix

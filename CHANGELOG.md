@@ -1,3 +1,28 @@
+# v0.4.0 (Mon May 20 2024)
+
+#### 🚀 Enhancement
+
+- Support collector [#10](https://github.com/JupiterOne/graph-manageengine-endpoint-central/pull/10) ([@Nick-NCSU](https://github.com/Nick-NCSU))
+
+#### 🐛 Bug Fix
+
+- Fix recordings [#9](https://github.com/JupiterOne/graph-manageengine-endpoint-central/pull/9) (geovanni.pacheco-ctr@jupiterone.com)
+
+#### ⚠️ Pushed to `main`
+
+- Apply remove-codeql with multi-gitter [ci skip] ([@electricgull](https://github.com/electricgull))
+- Fix x-cortex-service-groups where tier-4 was set incorrectly ([@jablonnc](https://github.com/jablonnc))
+- Populate CODEOWENRS, baseline package.json and baseline cortex.yaml ([@jablonnc](https://github.com/jablonnc))
+
+#### Authors: 4
+
+- Cameron Griffin ([@electricgull](https://github.com/electricgull))
+- Geovanni Pacheco ([@geovannimp](https://github.com/geovannimp))
+- Nick Thompson ([@Nick-NCSU](https://github.com/Nick-NCSU))
+- Noah Jablonski ([@jablonnc](https://github.com/jablonnc))
+
+---
+
 # v0.3.1 (Wed Sep 27 2023)
 
 #### 🐛 Bug Fix

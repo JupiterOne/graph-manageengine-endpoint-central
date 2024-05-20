@@ -1,3 +1,15 @@
+# v0.4.5 (Mon May 20 2024)
+
+#### 🐛 Bug Fix
+
+- Add org to docker and remove peril [#16](https://github.com/JupiterOne/graph-manageengine-endpoint-central/pull/16) ([@Nick-NCSU](https://github.com/Nick-NCSU))
+
+#### Authors: 1
+
+- Nick Thompson ([@Nick-NCSU](https://github.com/Nick-NCSU))
+
+---
+
 # v0.4.4 (Mon May 20 2024)
 
 #### 🐛 Bug Fix

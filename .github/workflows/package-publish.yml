@@ -9,7 +9,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: graph-manage-engine-ec
+  IMAGE_NAME: JupiterOne/graph-manage-engine-ec
 
 jobs:
   build:
@@ -27,7 +27,7 @@ jobs:
         uses: sigstore/cosign-installer@v3
 
       - name: Lowercase the repo name
-        run: echo "REPO=graph-manage-engine-ec" >>${GITHUB_ENV}
+        run: echo "REPO=jupiterone/graph-manage-engine-ec" >>${GITHUB_ENV}
 
       # Login against a Docker registry
       # https://github.com/docker/login-action

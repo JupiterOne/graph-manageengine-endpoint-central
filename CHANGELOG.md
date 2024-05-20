@@ -1,3 +1,16 @@
+# v0.4.3 (Mon May 20 2024)
+
+#### 🐛 Bug Fix
+
+- Retrigger release [#14](https://github.com/JupiterOne/graph-manageengine-endpoint-central/pull/14) ([@Nick-NCSU](https://github.com/Nick-NCSU))
+- Rename docker image [#13](https://github.com/JupiterOne/graph-manageengine-endpoint-central/pull/13) ([@Nick-NCSU](https://github.com/Nick-NCSU))
+
+#### Authors: 1
+
+- Nick Thompson ([@Nick-NCSU](https://github.com/Nick-NCSU))
+
+---
+
 # v0.4.2 (Mon May 20 2024)
 
 #### 🐛 Bug Fix

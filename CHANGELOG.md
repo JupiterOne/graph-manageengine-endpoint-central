@@ -1,3 +1,15 @@
+# v0.4.1 (Mon May 20 2024)
+
+#### 🐛 Bug Fix
+
+- Update graphProjectName for action [#11](https://github.com/JupiterOne/graph-manageengine-endpoint-central/pull/11) ([@Nick-NCSU](https://github.com/Nick-NCSU))
+
+#### Authors: 1
+
+- Nick Thompson ([@Nick-NCSU](https://github.com/Nick-NCSU))
+
+---
+
 # v0.4.0 (Mon May 20 2024)
 
 #### 🚀 Enhancement
